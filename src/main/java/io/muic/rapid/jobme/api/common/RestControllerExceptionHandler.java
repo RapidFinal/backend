@@ -28,4 +28,10 @@ public class RestControllerExceptionHandler {
         return new ExceptionResponse(req,ex, HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    ExceptionResponse invalidEntry(HttpServletRequest req, Exception ex){
+        return new ExceptionResponse(req,ex, HttpStatus.BAD_REQUEST);
+    }
 }
